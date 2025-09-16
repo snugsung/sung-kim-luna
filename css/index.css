@@ -1,3 +1,5 @@
+/* ========== Desktop Styling ========== */
+
 /* General Page Styling */
 body {
   background-color: #121212;
@@ -181,4 +183,139 @@ h2 {
   background-size: cover;
   background-position: center;
   border: 3px solid #4fc3f7;
+}
+
+/* ========== Tablet Styling (<= 1024px) ========== */
+@media (max-width: 1024px) {
+  /* Header/nav: reduce density + improve wrap */
+  :root {
+    --header-h: 2.25em;
+  }
+
+  .site-nav {
+    gap: 12px;          
+    padding: 10px 14px; 
+  }
+
+  /* Headings: slightly smaller, tighter spacing */
+  h1 {
+    font-size: 2.5rem;        
+    letter-spacing: 2px;      
+    margin-top: 18px;         
+  }
+
+  h2 {
+    font-size: 1.6rem;        
+    border-bottom-width: 1px; 
+  }
+
+  /* Sections: narrower max-width + more vertical rhythm */
+  section {
+    max-width: 720px; 
+    margin: 32px auto;
+  }
+
+  /* About avatar: scale down */
+  #About::before {
+    width: 100px;   
+    height: 100px;  
+  }
+
+  /* Experience cards: soften border, tighten padding */
+  .job {
+    border-color: #3aaee0; 
+    padding: 12px 14px;    
+  }
+
+  /* STRETCH GOAL: Convert Connect to a grid on tablet */
+  #Connect .connect-list {
+    display: grid;                        
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 12px;
+    justify-items: stretch;
+  }
+
+  #Connect .connect-list li {
+    text-align: center; 
+    padding: 12px;      
+  }
+}
+
+/* ========== Mobile Styling (<= 600px) ========== */
+@media (max-width: 600px) {
+  /* Make the header more compact and nav easier to tap/scroll */
+  :root {
+    --header-h: 2em; 
+  }
+
+  .site-nav {
+    padding: 8px 10px;         
+    gap: 10px;               
+    justify-content: flex-start;
+    overflow-x: auto;          
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-nav a {
+    padding: 8px 10px;        
+    font-size: 0.95rem;        
+    white-space: nowrap;
+  }
+
+  /* Headings: smaller, remove uppercase for readability on small screens */
+  h1 {
+    font-size: 2rem;                
+    text-transform: none;           
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: 1.4rem;              
+    color: #a7e3ff;                
+  }
+
+  /* Sections: reduce padding/margins for tighter layout */
+  section {
+    max-width: 92%;  
+    padding: 16px;   
+    margin: 24px auto;
+  }
+
+  /* Smaller about avatar */
+  #About::before {
+    width: 84px;   
+    height: 84px;  
+  }
+
+  /* Experience: stack info more vertically */
+  .job {
+    padding: 12px;            
+    border-radius: 12px;       
+  }
+
+  .job-header {
+    flex-direction: column;     
+    align-items: flex-start;    
+    gap: 6px;
+  }
+
+  .job-title {
+    font-size: 1.05rem;       
+    line-height: 1.25;         
+  }
+
+  .job-dates {
+    font-size: 0.9rem;          
+    opacity: 0.9;              
+  }
+
+  /* Connect: grid becomes a single column clarity */
+  #Connect .connect-list {
+    grid-template-columns: 1fr;
+    gap: 10px;                  
+  }
+  #Connect .connect-list li {
+    padding: 12px;              
+    border-radius: 12px;       
+  }
 }
