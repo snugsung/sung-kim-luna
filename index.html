@@ -1,32 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sung Kim's Portfolio</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css"> 
+  <title>Sung Kim's Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#About">About</a>
+      <a href="#Experience">Experience</a>
+      <a href="#Skills">Skills</a>
+      <a href="#Projects">Projects</a>
+      <a href="#Connect">Connect</a>
+    </nav>
+  </header>
+
+  <main>
     <h1>Sung Kim</h1>
+
     <section id="About">
-        <h2>About</h2>
-        <p>My name is Sung! I am a career changer aspiring to become a software engineer! In my free time you find me baking, cooking, reading, playing the piano, and/or trying something new!</p>
+      <h2>About</h2>
+      <p>My name is Sung! I am a career changer aspiring to become a software engineer! In my free time you find me baking, cooking, reading, playing the piano, and/or trying something new!</p>
     </section>
+
     <section id="Experience">
-        <h2>Experience</h2>
+      <h2>Experience</h2>
+      <div class="experience-list">
+        <article class="job">
+          <div class="job-header">
+            <h3 class="job-title">BMW Technical Scholar</h3>
+            <span class="job-dates">2025</span>
+          </div>
+          <p class="job-desc">
             <ul>
-                <li>BMW Technical Scholar</li>
-                <li>NASA Aerospace Scholar</li>
-                <li>Adobe Digital Academy Scholar</li>
-                <li>Greenville Technical College Computer Programming Major</li>
+                <li>
+                    Developed and optimized Oracle APEX applications to enhance production efficiency and reduce downtime, directly contributing to meeting and exceeding production goals.
+                </li>
+                <li>
+                    Designed PL/SQL-driven dashboards for real-time monitoring, enabling data-driven decision-making and proactive issue resolution.
+                </li>
+                <li>
+                    Automated critical processes using UiPath RPAs, reducing manual effort and minimizing operational delays.
+                </li>
+                <li>
+                    Integrated Power Apps solutions to streamline workflows and improve cross-departmental collaboration, enhancing overall productivity.
+                </li>
             </ul>
+        </p>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3 class="job-title">NASA Aerospace Scholar</h3>
+            <span class="job-dates">2024</span>
+          </div>
+          <p class="job-desc">
+            <ul>
+              <li>Competitively selected to participate in NASA’s Aerospace Scholar program, completing online coursework and a collaborative engineering design challenge.</li>
+              <li>Served as Surface Operations Specialist, leading logistics and planning for a simulated lunar expedition to the dark side of the Moon.</li>
+              <li>Partnered with a cross-functional team to design, evaluate, and refine a mission concept under real-world engineering and time constraints.</li>
+              <li>Presented the final mission proposal directly to NASA engineers and staff, showcasing technical problem-solving, teamwork, and communication skills.</li>
+            </ul>
+          </p>
+        </article>
+
+        <article class="job">
+          <div class="job-header">
+            <h3 class="job-title">Adobe Digital Academy Scholar</h3>
+            <span class="job-dates">2023</span>
+          </div>
+          <p class="job-desc">
+            <ul>
+              <li>
+                400+ hours of expert-led instruction in HTML, CSS, JavaScript, MongoDB, Express, React, Node, Python, Django, PostgreSQL; React and hands-on learning and implementation of full-stack development fundamentals, agile methodologies and principles, data structures, algorithms, and general computer science concepts.
+              </li>
+            </ul>
+          </p>
+        </article>
+    <section id="Skills">
+      <h2>Skills</h2>
     </section>
+
+    <section id="Projects">
+      <h2>Projects</h2>
+      <ul id="projects-list">
+      </ul>
+    </section>
+
     <section id="Connect">
-        <h2>Connect</h2>
-            <ul>
-                <li><a href="https://github.com/snugsung">GitHub</a></li>
-                <li><a href="https://www.linkedin.com/in/snugsung/">LinkedIn</a></li>
-            </ul>
+      <h2>Connect</h2>
+      <ul class="connect-list">
+        <li><a href="https://github.com/snugsung">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/snugsung/">LinkedIn</a></li>
+      </ul>
     </section>
-</body>
-</html>
+  </main>
