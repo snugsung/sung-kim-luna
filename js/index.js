@@ -21,3 +21,17 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }; 
 
+// Handle Message Form Submit
+const messageForm = document.querySelector('form[name="leave_message"]');
+
+messageForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = e.target.usersName.value;
+    const email = e.target.usersEmail.value;
+    const message = e.target.usersMessage.value;
+
+    console.log(name, email, message);
+
+    e.target.reset();
+});
