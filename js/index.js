@@ -1,3 +1,4 @@
+// Footer
 const footer = document.createElement('footer');
 document.body.appendChild(footer);
 
@@ -8,6 +9,7 @@ const copyright = document.createElement('p');
 copyright.textContent = `\u00A9 ${thisYear} Sung Kim. All rights reserved.`;
 footer.appendChild(copyright);
 
+// Skills 
 const skills = ["HTML5", "CSS3", "JavaScript", "React", "Bootstrap", "Materialize CSS", "Java", "Spring", "Spring Boot", "REST APIs", "C#", "Node.js", "Express", "Python", "Django", "PHP", "MongoDB", "PostgreSQL", "MySQL", "T-SQL", "PL/SQL", "Hibernate/JPA", "Unit Testing (JUnit, Mockito)", "Integration Testing (Spring Boot Test, MockMvc)", "Postman", "Git", "GitHub", "Version Control", "Power BI", "Power Automate", "Microsoft 365 Suite"];
 
 const skillsSection = document.getElementById('skills');
@@ -21,7 +23,7 @@ for (let i = 0; i < skills.length; i++) {
     skillsList.appendChild(skill);
 }; 
 
-// Handle Message Form Submit
+// Messages + Messages Form
 const messageForm = document.querySelector('form[name="leave_message"]');
 
 messageForm.addEventListener('submit', (e) => {
@@ -37,17 +39,58 @@ messageForm.addEventListener('submit', (e) => {
     const messageList = messageSection.querySelector('ul');
 
     const newMessage = document.createElement('li');
-    newMessage.innerHTML = `<a href="mailto:${email}">${name}</a> <span> - ${message}</span>`;
+    newMessage.innerHTML = `
+    <div class="msg-content">
+        <a href="mailto:${email}">${name}</a>
+        <span class="msg-text"> ${message}</span>
+    </div>`;
 
+    // Edit button 
+    const editButton = document.createElement('button');
+    editButton.type = 'button';
+    editButton.innerText = 'edit';
+    editButton.dataset.mode = 'view';
+
+    editButton.addEventListener('click', (e) => {
+        const entry = e.target.closest('li');
+        const content = entry.querySelector('.msg-content');
+        let msgSpan = content.querySelector('.msg-text');
+
+        if (editButton.dataset.mode === 'view') {
+            const current = msgSpan.textContent.replace(/^ —\s*/, '');
+            const textarea = document.createElement('textarea');
+            textarea.className = 'msg-edit';
+            textarea.rows = 3;
+            textarea.value = current;
+
+            content.replaceChild(textarea, msgSpan);
+            editButton.innerText = 'save';
+            editButton.dataset.mode = 'edit';
+      } else {
+            const textarea = content.querySelector('.msg-edit');
+            const newText = textarea.value.trim();
+
+            const newSpan = document.createElement('span');
+            newSpan.className = 'msg-text';
+            newSpan.textContent = ` — ${newText}`;
+            content.replaceChild(newSpan, textarea);
+
+            editButton.innerText = 'edit';
+            editButton.dataset.mode = 'view';
+        }
+    });
+
+    // Remove button
     const removeButton = document.createElement('button');
-    removeButton.innerText = 'remove';
     removeButton.type = 'button';
+    removeButton.innerText = 'remove';
 
     removeButton.addEventListener('click', (e) => {
-        const entry = e.target.parentNode;
+        const entry = e.target.closest('li');
         entry.remove();
     });
 
+    newMessage.appendChild(editButton);
     newMessage.appendChild(removeButton);
     messageList.appendChild(newMessage);
 
