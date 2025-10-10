@@ -101,6 +101,7 @@ h2 {
   margin-right: auto;
 }
 
+/* Desktop layout for skills/projects lists (Flexbox) */
 #skills ul, #projects ul {
   list-style: none;
   padding: 0;
@@ -246,6 +247,7 @@ h2 {
     padding: 12px 14px;    
   }
 
+  /* Tablet layout for connect list */
   #connect .connect-list {
     display: grid;                        
     grid-template-columns: repeat(2, 1fr);
@@ -256,6 +258,14 @@ h2 {
   #connect .connect-list li {
     text-align: center; 
     padding: 12px;      
+  }
+
+  /* Tablet layout for skills list (Grid) */
+  #skills ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+    justify-items: center;
   }
 }
 
@@ -323,6 +333,7 @@ h2 {
     opacity: 0.9;              
   }
 
+  /* Mobile layout for connect list */
   #connect .connect-list {
     grid-template-columns: 1fr;
     gap: 10px;                  
@@ -330,5 +341,11 @@ h2 {
   #connect .connect-list li {
     padding: 12px;              
     border-radius: 12px;       
+  }
+
+  /* Mobile layout for skills list (single column) */
+  #skills ul {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
