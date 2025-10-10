@@ -2,8 +2,9 @@ const footer = document.createElement('footer');
 document.body.appendChild(footer);
 
 const today = new Date();
-const currentYear = today.getFullYear();
+const thisYear = today.getFullYear();
 
 const copyright = document.createElement('p');
-copyright.textContent = `© ${currentYear} Sung Kim`;
+copyright.textContent = `\u00A9 ${thisYear} Sung Kim. All rights reserved.`;
 footer.appendChild(copyright);
+
