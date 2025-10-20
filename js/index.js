@@ -123,7 +123,7 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
             projectList.appendChild(project);
         }
 
-        // If no repos, show a friendly message
+        // If no repos, display a message indicating no repositories
         if (repositories.length === 0) {
             const empty = document.createElement('li');
             empty.innerText = 'No repositories to display yet.';
