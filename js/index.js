@@ -96,3 +96,47 @@ messageForm.addEventListener('submit', (e) => {
 
     e.target.reset();
 });
+
+const GITHUB_USERNAME = 'snugsung';
+
+fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+        }
+
+        return response.json();
+    })
+    .then((repositories) => {
+        console.log(repositories);
+
+        const projectSection = document.getElementById('projects');
+        const projectList = projectSection.querySelector('ul');
+
+        // Clear any existing content
+        projectList.innerHTML = '';
+
+        for (let i = 0; i < repositories.length; i++) {
+            const project = document.createElement('li');
+            // Set innerText to the repo name
+            project.innerText = repositories[i].name;
+            projectList.appendChild(project);
+        }
+
+        // If no repos, show a friendly message
+        if (repositories.length === 0) {
+            const empty = document.createElement('li');
+            empty.innerText = 'No repositories to display yet.';
+            projectList.appendChild(empty);
+        }
+    })
+    .catch((error) => {
+        console.error(error);
+
+        const projectSection = document.getElementById('projects');
+        const projectList = projectSection.querySelector('ul');
+
+        const errorItem = document.createElement('li');
+        errorItem.innerText = 'Sorry—could not load projects right now.';
+        projectList.appendChild(errorItem);
+    });
